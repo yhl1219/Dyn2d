@@ -19,12 +19,10 @@ namespace System.Numerics
 
         // this method alter the origin vector
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ref Vector2 Normalize(ref this Vector2 a)
+        public static void Normalize(ref this Vector2 a)
         {
             var invLength = 1 / a.Length();
-            a.X *= invLength;
-            a.Y *= invLength;
-            return ref a;
+            a *= invLength;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
