@@ -1,7 +1,6 @@
-using System.Numerics;
 using System.Runtime.CompilerServices;
 
-namespace Dyn2d.Math
+namespace System.Numerics
 {
     public static class Vector2Extension
     {
@@ -28,9 +27,22 @@ namespace Dyn2d.Math
             return ref a;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)] 
-        public static float Cross(in this Vector2 a, in Vector2 b) {
-            return Vector2.
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float Cross(in this Vector2 a, in Vector2 b)
+        {
+            return a.X * b.Y - a.Y * b.X;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Vector2 Cross(in this Vector2 v, float a)
+        {
+            return new Vector2(a * v.Y, -a * v.X);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Vector2 Cross(this float a, in Vector2 v)
+        {
+            return new Vector2(-a * v.Y, a * v.X);
         }
     }
 }
